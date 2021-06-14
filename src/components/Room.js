@@ -37,6 +37,7 @@ function Room() {
   }
 
   useEffect(() => {
+      console.log("room ✨");
     const trigger1 = localStorage.getItem("trigger1");
     const trigger2 = localStorage.getItem("trigger2");
     const trigger3 = localStorage.getItem("trigger3");
@@ -53,10 +54,10 @@ function Room() {
 
   return (
     <div style={{ display: "flex" }}>
-        
-      <Switch onTrigger={triggerHandler1} />
-      <Switch onTrigger={triggerHandler2} />
-      <Switch onTrigger={triggerHandler3} />
+        {console.log("calling room")}
+      <Switch id="1" onTrigger={triggerHandler1} />
+      <Switch id="2" onTrigger={triggerHandler2} />
+      <Switch id="3" onTrigger={triggerHandler3} />
       {trigger1 & trigger2 & trigger3  ? (
         <div style={{ display: "flex", fontSize: "50px" }}>💡</div>
       ) : <div style={{ display: "flex", fontSize: "50px" }}>🪔</div>}

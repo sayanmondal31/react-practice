@@ -7,17 +7,18 @@ function Switch({ onTrigger }) {
 
   function switchHandler() {
     if (isPressed) {
-    //   localStorage.setItem("switch", "off");
+      localStorage.setItem("switch", "off");
       setIsPressed(false);
       onTrigger(false);
     } else {
-    //   localStorage.setItem("switch", "on");
+      localStorage.setItem("switch", "on");
       setIsPressed(true);
       onTrigger(true);
     }
   }
 
     useEffect(() => {
+        console.log("switch effect ✨");
       const getSwitchStatus = localStorage.getItem("switch")
       if(getSwitchStatus === 'on'){
         setIsPressed(true);
@@ -28,6 +29,7 @@ function Switch({ onTrigger }) {
 
   return (
     <div>
+        {console.log("calling switch")}
       <button style={{backgroundColor:"whitesmoke", borderRadius:"20px", padding:"1rem", fontSize:"20px"}} onClick={switchHandler}>{isPressed ? "off" : "on"}</button>
     </div>
   );

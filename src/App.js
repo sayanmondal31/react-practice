@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Room from "./components/Room";
+import UserInput from "./components/UserInput/UserInput";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
+    console.log("🏠 ✨")
     const webBackground = localStorage.getItem("darkMode");
     if (webBackground === "1") {
       setDarkMode(true);
@@ -28,7 +30,9 @@ function App() {
     : (document.body.style.backgroundColor = "white");
 
   return (
+    
     <div>
+      {console.log("🏠")}
       <h1 style={{ color: darkMode ? "white" : "black" }}>
         Example of useEffect
       </h1>
@@ -49,6 +53,10 @@ function App() {
        to get 💡 you have to turn on three switches
       </h1>
       <Room />
+<br />
+
+
+      <UserInput />
     </div>
   );
 }
