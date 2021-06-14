@@ -1,0 +1,28 @@
+.form-main {
+
+}
+
+.form-main label{
+    margin-right: 1rem;
+
+}
+
+.form-main-field{
+    display: flex;
+}
+
+.form-main input{
+    padding: 0.5rem;
+    margin: 1rem;
+    display: flex;
+    opacity: 0.5;
+    box-shadow:2rem;
+}
+
+.form-main button{
+    text-align: end;
+    padding: 0.5rem;
+    font-size: large;
+    background-color:aquamarine
+}
+

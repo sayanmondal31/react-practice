@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import UserDetailsView from "./components/UserDetailsView";
+import UserEntry from "./components/UserEntry";
 
 function App() {
+  const [userDetails, setUserDetails] = useState([]);
+
+  //✏️ create event handler which takes new userDetail as object
+  //✏️ and add to userDetails
+  function addUserHandler(newUserDetail) {
+    setUserDetails((prevDetails) => {
+      return [...prevDetails, newUserDetail];
+    });
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h2 style={{color:"purple"}}>User details entry With <span style={{color:"purple"}} >useRef()</span></h2>
+      <UserEntry onAddUser={addUserHandler} />
+      {userDetails.map((user) => {
+        return <UserDetailsView email={user.email} age={user.age} />;
+      })}
     </div>
   );
 }
